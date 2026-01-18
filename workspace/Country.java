@@ -10,7 +10,10 @@ public class Country
    private String image;
    private String capital;
   // add constructors
-  public guess(String country, String language, String image, String capital ){
+  public Country(){
+    
+  }
+  public Country(String country, String language, String image, String capital ){
     this.country = country;
     this.language = language;
     this.image= image;
