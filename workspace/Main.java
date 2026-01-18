@@ -31,30 +31,39 @@ public class Main
   {
     // Open the data file. Please note that the file structure we're working with requires the full file path as shown here unlike what you saw in runestone where the file name was sufficient.
     File file = new File("/workspaces/Countries/workspace/countries-data.csv");
-    
+    try{
+      int i=0;
     Scanner scan=new Scanner(file);//create a scanner and a loop to read from the file until you've read everything.
     while(scan.hasNextLine()){
       String line= scan.nextLine();
       String[] parts= line.split(",");
-      Countries c= new countries(parts[0],parts[1],parts[2],parts[3]);
+      Country c= new Country(parts[0],parts[1],parts[2],parts[3]);
       countriesArray[i]= c;// inside the loop you'll need to read in a line from the file and use "split" to break up the data into destinct parts.
     // create a new Country using your constructor with 4 arguments (each of the arguments is a different part of the line you've read in)
     // inside the loop, set countryArray[i] to the created Country object
     //after running this method your array should contain all 10 countries from inside the countries-data file.
-      i++;
+      i++;}
+      scan.close();
+    
+    }catch (FileNotFoundException e){
+      System.out.println("file is not found!");
+    }
+      
+      
     
   }
 
   /* showCountry() will show the image associated with the current country. It should get the country at index from the countryArray. It should use its get method to get its image file name and use the code below to put the image in the GUI.
   */
   public void showCountry() {
-    // Get the country at index from countryArray
+    Country c =countryArray[index];// Get the country at index from countryArray
     
     // Use its get method to get the its image file name and save it into imagefile variable below instead of worldmap.jpg.
-    String imagefile = "worldmap.jpg";
-    // Use the following code to create an new Image Icon and put it into the GUI
+    
+    String imagefile = c.getImagefile();// Use the following code to create an new Image Icon and put it into the GUI
     img = new ImageIcon("/workspaces/Countries/workspace/"+imagefile);
     imageLabel.setIcon(img);
+    outputLabel.setText("What country is this?");
   }
   
   /* nextButton should increment index. If the index is greater than 9, reset it back to 0. Clear the outputLabel to empty string using setText, and call showCountry();*/
