@@ -69,23 +69,40 @@ public class Main
   /* nextButton should increment index. If the index is greater than 9, reset it back to 0. Clear the outputLabel to empty string using setText, and call showCountry();*/
   public void nextButtonClick()
   {
-    
+    index++;
+    if(index>9){
+      index =0;
+    }
+    outputLabel.setText("");
+    showCountry();
   }
   
   /* reviewButton should get the country at index from the countryArray, call its toString() method and save the result, print it out with System.out.println and as an argument to outputLabel.setText( text to print out ); */
   public void reviewButtonClick()
   {
-     
+     Country c =countryArray[index];
+     String info = c.toString();
+     System.out.println(info);
+     outputLabel.setText(info);
   }
 
-  /* quizButton should clear the outputLabel (outputLabel.setText to empty string), get the country at index from countryArray, print out a question about it like What country is this? and/or What's this country's capital?. Get the user's answer using scan.nextLine() and check if it is equal to the country's data using its get methods and print out correct or incorrect.
-  */
+  /* quizButton should clear the outputLabel (outputLabel.setText to empty string), get the country at index from countryArray, print out a question about it like What country is this? and/or What's this country's capital?. Get the user's answer using scan.nextLine() and //
+  check if it is equal to the country's data using its get methods and print out correct or incorrect.*/
+
   public void quizButtonClick()
   {
     Scanner scan = new Scanner(System.in); 
-    
-    
-    
+    outputLabel.setText("");
+    Country c= countryArray[index];
+    System.out.println("what country is this?");
+    String userAnswer = scan.nextLine();
+    if(userAnswer.equals(c.getName())){
+      System.out.println("Correct!");
+      outputLabel.setText("Correct!");
+    }else{
+      System.out.println("Incorrect");
+      outputLabel.setText("Incorrect");
+    }
   }
 
 
