@@ -13,7 +13,7 @@ public class Country
   public Country(){
     
   }
-  public Country(String country, String language, String image, String capital ){
+  public Country(String country, String capital, String language, String image ){
     this.country = country;
     this.language = language;
     this.image= image;

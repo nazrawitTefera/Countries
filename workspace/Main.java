@@ -37,8 +37,9 @@ public class Main
     while(scan.hasNextLine()){
       String line= scan.nextLine();
       String[] parts= line.split(",");
+    
       Country c= new Country(parts[0],parts[1],parts[2],parts[3]);
-      countriesArray[i]= c;// inside the loop you'll need to read in a line from the file and use "split" to break up the data into destinct parts.
+      countryArray[i]= c;// inside the loop you'll need to read in a line from the file and use "split" to break up the data into destinct parts.
     // create a new Country using your constructor with 4 arguments (each of the arguments is a different part of the line you've read in)
     // inside the loop, set countryArray[i] to the created Country object
     //after running this method your array should contain all 10 countries from inside the countries-data file.
@@ -60,8 +61,10 @@ public class Main
     
     // Use its get method to get the its image file name and save it into imagefile variable below instead of worldmap.jpg.
     
-    String imagefile = c.getImagefile();// Use the following code to create an new Image Icon and put it into the GUI
+    String imagefile = c.getImage();// Use the following code to create an new Image Icon and put it into the GUI
+    System.out.println(imagefile);
     img = new ImageIcon("/workspaces/Countries/workspace/"+imagefile);
+    System.out.println("Loading image: " + "/workspaces/Countries/workspace/" + imagefile);
     imageLabel.setIcon(img);
     outputLabel.setText("What country is this?");
   }
@@ -91,18 +94,20 @@ public class Main
 
   public void quizButtonClick()
   {
-    Scanner scan = new Scanner(System.in); 
+    //Scanner scan = new Scanner(System.in); 
     outputLabel.setText("");
     Country c= countryArray[index];
     System.out.println("what country is this?");
-    String userAnswer = scan.nextLine();
-    if(userAnswer.equals(c.getName())){
+    String userAnswer =userInput.getText().trim();
+    //scan.close();
+    if(userAnswer.equalsIgnoreCase(c.getCountry())){
       System.out.println("Correct!");
       outputLabel.setText("Correct!");
     }else{
       System.out.println("Incorrect");
       outputLabel.setText("Incorrect");
     }
+     userInput.setText("");
   }
 
 
