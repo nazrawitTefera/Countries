@@ -27,6 +27,8 @@ public class Main
   }
 
   /* loadCountries() reads in the data from the countries-data.csv file and fills in the countryArray with data. You need to add the loop that reads in the country data into the array. */
+  //pre-The CSV file exists 
+  //post-countryArray is filled with Country objects from the file.
   public void loadCountries() 
   {
     // Open the data file. Please note that the file structure we're working with requires the full file path as shown here unlike what you saw in runestone where the file name was sufficient.
@@ -56,6 +58,8 @@ public class Main
 
   /* showCountry() will show the image associated with the current country. It should get the country at index from the countryArray. It should use its get method to get its image file name and use the code below to put the image in the GUI.
   */
+ //pre-countryArray has been loaded and index is valid.
+ //post-The image for the current country is shown and a question is displayed.
   public void showCountry() {
     Country c =countryArray[index];// Get the country at index from countryArray
     
@@ -70,6 +74,8 @@ public class Main
   }
   
   /* nextButton should increment index. If the index is greater than 9, reset it back to 0. Clear the outputLabel to empty string using setText, and call showCountry();*/
+  //pre-index is within the array range.
+  //post-index moves to the next country and the new image is shown.
   public void nextButtonClick()
   {
     index++;
@@ -81,6 +87,8 @@ public class Main
   }
   
   /* reviewButton should get the country at index from the countryArray, call its toString() method and save the result, print it out with System.out.println and as an argument to outputLabel.setText( text to print out ); */
+  //A valid Country exists at the current index.
+  //Information about the country is displayed to the user.
   public void reviewButtonClick()
   {
      Country c =countryArray[index];
@@ -91,7 +99,8 @@ public class Main
 
   /* quizButton should clear the outputLabel (outputLabel.setText to empty string), get the country at index from countryArray, print out a question about it like What country is this? and/or What's this country's capital?. Get the user's answer using scan.nextLine() and //
   check if it is equal to the country's data using its get methods and print out correct or incorrect.*/
-
+//The user has typed an answer into the text box.
+//The program tells the user if their answer is correct or incorrect.
   public void quizButtonClick()
   {
     //Scanner scan = new Scanner(System.in); 

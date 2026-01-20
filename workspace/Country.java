@@ -1,7 +1,7 @@
  
  //nazrawit tefera
  //date- jan 23, 2026
- //
+ //this is a quiz game
 public class Country
 {
   // add private instance variables for the name, capital, language, and image file.
